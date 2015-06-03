@@ -3,7 +3,10 @@
   This sketch reads data from an array and outputs it to 10 LEDs
   for use as a Persistence of Vision (POV) display
   
-  Read the style guide before putting this on-line! http://arduino.cc/en/Reference/StyleGuide
+  You can find construction details and more information about
+  the display here:
+  
+  http://www.tomtilley.net/projects/tron-pov/
   
  */
 
