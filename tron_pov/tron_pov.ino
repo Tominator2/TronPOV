@@ -8,6 +8,23 @@
   
   http://www.tomtilley.net/projects/tron-pov/
   
+  Digital Pins:
+  3  - input  - pattern select switch
+  4  - output - LED 10
+  5  - output - LED 9
+  6  - output - LED 8
+  7  - output - LED 7
+  8  - output - LED 6
+  9  - output - LED 5
+  10 - output - LED 4
+  11 - output - LED 3
+  12 - output - LED 2  
+  13 - output - LED 1 
+
+ Analog Pins:
+ 3 - SDA on ADXL345 (Serial Data (I2C))
+ 4 - SCL on ADXL345 (Serial Communications Clock)
+  
  */
 
 #include <Wire.h>:       // Library for I2C communication
@@ -74,7 +91,7 @@ int rows[] = {sizeof(tron2logo)/2,
 //
 // The setup() method runs once, when the sketch starts
 //
-void setup()   {    
+void setup() {    
   
   // initialize the digital pins for the LED output:
   for (int i=0; i < noPixels; i++)
@@ -85,7 +102,7 @@ void setup()   {
    // initialize the digital pin for switch input: 
   pinMode(switchPin, INPUT);
   
-  Wire.begin();        // join i2c bus (address optional for master)
+  Wire.begin();  // join I2C bus (address optional for master)
   
   // Turn on the ADXL345 accelerometer
   writeTo(DEVICE, 0x2D, 0);      
@@ -95,13 +112,12 @@ void setup()   {
   // Set the range of the accelerometer (see page 17 of the ADXL345 Datasheet)
   // DO, D1 set the range to +/-2, +/-4, +/-8, or +/-16g
   // D3 sets FULL_RES
-  //  writeTo(DEVICE, 0x31, 10); //8g FULL_RES
   writeTo(DEVICE, 0x31, B1010); //8g FULL_RES
   
   // Set the detection thresholds
   // Note that these may need to be inverted when the unit is held 
   // switch-side up instead of USB-cable side.
-  pos_thresh = 1500;
+  pos_thresh =  1500;
   neg_thresh = -1000;
 
   braking = false;
@@ -115,8 +131,7 @@ void setup()   {
 // The loop() method runs over and over again,
 // as long as the Arduino has power
 //
-void loop()                     
-{
+void loop() {
   
   if (digitalRead(switchPin) == HIGH) {  // check the change pattern switch
     pattern++;
