@@ -1,12 +1,14 @@
 /*
 
   This sketch reads data from an array and outputs it to 10 LEDs
-  for use as a Persistence of Vision (POV) display
+  for use as a Persistence of Vision (POV) display.
   
   You can find construction details and more information about
   the display here:
   
   http://www.tomtilley.net/projects/tron-pov/
+  
+  Digital pins are used for the 10 LEDs and for the pattern change/select switch.
   
   Digital Pins:
   3  - input  - pattern select switch
@@ -21,9 +23,11 @@
   12 - output - LED 2  
   13 - output - LED 1 
 
+ Analog pins are used for communicating with an ADXL345 accelerometer using I2C.
+
  Analog Pins:
- 3 - SDA on ADXL345 (Serial Data (I2C))
- 4 - SCL on ADXL345 (Serial Communications Clock)
+ 3 - SDA on ADXL345 (Serial Data Line)
+ 4 - SCL on ADXL345 (Serial Clock Line)
   
  */
 
