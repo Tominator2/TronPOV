@@ -12,11 +12,13 @@ Each pattern is stored in a separate header file that contains an array of words
 
 ```
 ***          111
+ *           010
  *     |\    010
  *   +-+ \   010
  *   |    >  010
  *   +-+ /   010
  *     |/    010
+ *           010
 ***          111
              000
 ```
